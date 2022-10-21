@@ -20,6 +20,9 @@ public class CellQueueTests{
 
 			// test 
 			assert cq.getType() == "CellQueue" : "Error in CellQueue::CellQueue()";
+
+			System.out.println("Testing complete!");
+			System.out.println("");
 		}
 
 		// case 2: Testing offer()
@@ -41,6 +44,9 @@ public class CellQueueTests{
 
 			// test
 			assert cq.size() == 4 : "Error in CellQueue::offer()";
+
+			System.out.println("Testing complete!");
+			System.out.println("");
 		}
 
 		// case 3: Testing peek()
@@ -58,10 +64,13 @@ public class CellQueueTests{
 			cq.offer(c4);
 
 			// verify
-			System.out.println(cq.peek() + " == 0, 0, FREE, false");
+			System.out.println(cq.peek() + " == FREE");
 
 			// test
 			assert cq.peek() == c1 : "Error in CellQueue::peek()";
+
+			System.out.println("Testing complete!");
+			System.out.println("");
 
 		}
 
@@ -85,11 +94,18 @@ public class CellQueueTests{
 			cq1.offer(c5);
 			Cell deleted2 = cq1.poll();
 
-			//verify
-			System.out.println(cq.poll() + " == 0, 0, FREE, false");
+			// verify
+			System.out.println(cq.poll() + " == FREE");
 			System.out.println(cq1.size() + " == 0");
 
+			// test
+			assert deleted1 == c1 : "Error in CellQueue::poll()";
+			assert deleted2 == c5 : "Error in CellQueue::poll()";
 
+			System.out.println("Testing complete!");
+			System.out.println("");
 		}
+
+		System.out.println("***TESTING FINISHED***");
 	}
 }

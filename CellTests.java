@@ -83,7 +83,25 @@ public class CellTests{
 			System.out.println("");
 		}
 
-		// case 5: testing visited()
+		// case 5: testing setType()
+		{
+			System.out.println("TESTING: setType");
+
+			// setup
+			Cell cell = new Cell(0,0,Cell.Type.FREE);
+			cell.setType(Cell.Type.OBSTACLE);
+
+			// verify
+			System.out.println(cell.type + " == OBSTACLE");
+
+			// test
+			assert cell.type == Cell.Type.OBSTACLE : "Error in Cell::setType()";
+
+			System.out.println("Testing complete!");
+			System.out.println("");			
+		}
+
+		// case 6: testing visited()
 		{
 			System.out.println("TESTING: visited()");
 
@@ -101,7 +119,7 @@ public class CellTests{
 			System.out.println("");
 		}
 
-		// case 6: testing getPrev()
+		// case 7: testing getPrev()
 		{
 			System.out.println("TESTING: getPrev()");
 
@@ -111,7 +129,7 @@ public class CellTests{
 			cell1.prev = cell2;
 
 			// verify
-			System.out.println(cell1.getPrev() + " == 0,1,Cell.Type.FREE");
+			System.out.println(cell1.getPrev() + "== FREE");
 
 			// test
 			assert cell1.getType() == Cell.Type.FREE : "Error in Cell::getPrev()";
@@ -120,7 +138,7 @@ public class CellTests{
 			System.out.println("");
 		}
 
-		// case 7: testing visitFrom()
+		// case 8: testing visitFrom()
 		{
 			System.out.println("TESTING: visitedFrom()");
 
@@ -131,7 +149,7 @@ public class CellTests{
 
 			// test
 			System.out.println(cell1.visited + " == true");
-			System.out.println(cell1.getPrev() + " == 0,1,Cell.Type.FREE");
+			System.out.println(cell1.getPrev() + " == FREE");
 
 			assert cell1.visited == true : "Error in Cell::visitedFrom()";
 			assert cell1.getPrev() == cell2 : "Error in Cell::visitedFrom()";
@@ -140,7 +158,7 @@ public class CellTests{
 			System.out.println("");
 		}
 
-		// case 8: testing reset()
+		// case 9: testing reset()
 		{
 			System.out.println("TESTING: reset()");
 
