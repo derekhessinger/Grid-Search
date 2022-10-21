@@ -67,6 +67,11 @@ public class CellQueue<T>{
 		this.size = 0;
 	}
 
+	public String getType(){
+
+		return "CellQueue";
+	}
+
 	//Adds cell at the end of the queue
 	public void offer(Cell c){
 

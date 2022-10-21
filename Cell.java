@@ -26,6 +26,11 @@ public class Cell{
 		this.type = type;
 	}
 
+	public String getObjType(){
+
+		return "Cell";
+	}
+
 	//Returns row of cell
 	public int getRow(){
 

@@ -16,10 +16,10 @@ public class CellQueueTests{
 			CellQueue<Cell> cq = new CellQueue<Cell>();
 
 			// verify
-			System.out.println(cq.size() + " != null");
+			System.out.println(cq.getType() + " == CellQueue");
 
 			// test 
-			assert cq != null : "Error in CellQueue::CellQueue()";
+			assert cq.getType() == "CellQueue" : "Error in CellQueue::CellQueue()";
 		}
 
 		// case 2: Testing offer()
