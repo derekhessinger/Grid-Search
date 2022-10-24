@@ -136,22 +136,22 @@ public class Landscape{
 
 			if (cCol != 0 && cCol != this.cols - 1){
 
-				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE){
+				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
 
 					neighbors.add(this.landscape[cRow-1][cCol]);
 				}
 
-				if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE){
+				if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
 
 					neighbors.add(this.landscape[cRow][cCol+1]);
 				}
 
-				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE){
+				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
 
 					neighbors.add(this.landscape[cRow+1][cCol]);
 				}
 
-				if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE){
+				if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
 
 					neighbors.add(this.landscape[cRow][cCol-1]);
 				}
@@ -167,12 +167,12 @@ public class Landscape{
 				// Top left corner
 				if (cRow == 0 && cCol == 0){
 
-					if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow][cCol+1]);
 					}
 
-					if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow+1][cCol]);
 					}
@@ -181,12 +181,12 @@ public class Landscape{
 				// Top right corner
 				if (cRow == 0 && cCol == this.cols - 1){
 
-					if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow+1][cCol]);
 					}
 
-					if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow][cCol-1]);
 					}
@@ -195,12 +195,12 @@ public class Landscape{
 				// Bottom left corner
 				if (cRow == this.rows - 1 && cCol == 0){
 
-					if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow-1][cCol]);
 					}
 
-					if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow][cCol+1]);
 					}
@@ -209,12 +209,12 @@ public class Landscape{
 				// Bottom right corner
 				if (cRow == this.rows - 1 && cCol == this.cols - 1){
 
-					if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow-1][cCol]);
 					}
 
-					if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow][cCol-1]);
 					}
@@ -227,17 +227,17 @@ public class Landscape{
 				// If cell is in top row
 				if (cRow == 0){
 
-					if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE){
+					if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow][cCol+1]);
 					}
 
-					if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow+1][cCol]);
 					}
 
-					if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE){
+					if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow][cCol-1]);
 					}
@@ -246,17 +246,17 @@ public class Landscape{
 				// If cell is in bottom row
 				else{
 
-					if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE){
+					if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow-1][cCol]);
 					}
 
-					if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE){
+					if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow][cCol+1]);
 					}
 
-					if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE){
+					if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
 
 						neighbors.add(this.landscape[cRow][cCol-1]);
 					}
@@ -269,17 +269,17 @@ public class Landscape{
 
 			// If cell is on right perimeter
 			if (cCol == 0){
-				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE){
+				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
 
 					neighbors.add(this.landscape[cRow-1][cCol]);
 				}
 
-				if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE){
+				if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
 
 					neighbors.add(this.landscape[cRow][cCol+1]);
 				}
 
-				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE){
+				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
 
 					neighbors.add(this.landscape[cRow+1][cCol]);
 				}

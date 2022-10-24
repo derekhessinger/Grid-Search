@@ -15,15 +15,13 @@ public class GridSearch{
 	Landscape scape;
 	LandscapeDisplay display;
 
-
 	// Constructs GridSearch
 	public GridSearch(){
 
-		this.scape = new Landscape(10, 10, 0.3);
+		this.scape = new Landscape(10, 10, 0.2);
 		this.display = new LandscapeDisplay(this.scape, 20);
 	}
-
-	// TODO: doesnt appear to stop looking for path after Target is found
+	
 	public boolean depthFirstSearch(int delay) throws InterruptedException{
 
 		// Create an empty Stack of Cells
@@ -48,25 +46,42 @@ public class GridSearch{
 
 			ArrayList<Cell> curNeighbors = this.scape.getNeighbors(cur);
 
-			for(Cell n: curNeighbors){
+			System.out.println(curNeighbors);
 
-				if (n.getType() != Cell.Type.OBSTACLE && n.visited() == false){
+			// for(Cell n: curNeighbors){
 
-					n.visitFrom(cur);
+			// 	if (n.getType() != Cell.Type.OBSTACLE && n.visited() == false){
 
-					if (n.getType() == Cell.Type.TARGET){
+			// 		n.visitFrom(cur);
+
+			// 		if (n.getType() == Cell.Type.TARGET){
+
+			// 			return true;
+			// 		}
+			// 		cs.push(n);
+			// 	}
+			// }
+
+			for (int i = 0; i < curNeighbors.size(); i++){
+
+				Cell curCell = curNeighbors.get(i);
+
+				if (curCell.getType() != Cell.Type.OBSTACLE && curCell.visited() == false){
+
+					curCell.visitFrom(cur);
+
+					if (curCell.getType() == Cell.Type.TARGET){
 
 						return true;
 					}
-
-					cs.push(n);
+					cs.push(curCell);
 				}
 			}
 		}
 		return false;
 	}
 
-	// TODO: Same as depthFirstSearch, doesn't break once Target is found
+	
 	public boolean breadthFirstSearch(int delay) throws InterruptedException{
 
 		// Create an empty Queue of Cells
@@ -110,10 +125,10 @@ public class GridSearch{
 	public static void main(String[] args) throws InterruptedException{
 
 		GridSearch gs = new GridSearch();
-		// gs.depthFirstSearch(500);
+		gs.depthFirstSearch(500);
 
 		// gs.reset();
 
-		gs.breadthFirstSearch(500);
+		// gs.breadthFirstSearch(25);
 	}
 }
