@@ -125,7 +125,7 @@ public class GridSearch{
 	public static void main(String[] args) throws InterruptedException{
 
 		GridSearch gs = new GridSearch();
-		gs.depthFirstSearch(500);
+		gs.depthFirstSearch(0);
 
 		// gs.reset();
 

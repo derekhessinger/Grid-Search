@@ -123,189 +123,211 @@ public class Landscape{
 		}
 	}
 
+	// public ArrayList<Cell> getNeighbors(Cell c){
+
+	// 	neighbors = new ArrayList<Cell>();
+	// 	int cRow = c.getRow();
+	// 	int cCol = c.getCol();
+
+	// 	// Arraylist adds in order of up, right, down, left
+
+	// 	// Check if cell c is not a perimeter or corner cell
+	// 	if (cRow != 0 && cRow != this.rows - 1){
+
+	// 		if (cCol != 0 && cCol != this.cols - 1){
+
+	// 			if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
+
+	// 				neighbors.add(this.landscape[cRow-1][cCol]);
+	// 			}
+
+	// 			if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
+
+	// 				neighbors.add(this.landscape[cRow][cCol+1]);
+	// 			}
+
+	// 			if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
+
+	// 				neighbors.add(this.landscape[cRow+1][cCol]);
+	// 			}
+
+	// 			if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
+
+	// 				neighbors.add(this.landscape[cRow][cCol-1]);
+	// 			}
+	// 		}
+	// 	}
+
+	// 	// Check if cell c is a perimeter or corner cell
+	// 	if (cRow == 0 || cRow == this.rows - 1){
+
+	// 		// If cell is a corner cell
+	// 		if (cCol == 0 || cCol == this.cols - 1){
+
+	// 			// Top left corner
+	// 			if (cRow == 0 && cCol == 0){
+
+	// 				if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow][cCol+1]);
+	// 				}
+
+	// 				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow+1][cCol]);
+	// 				}
+	// 			}
+
+	// 			// Top right corner
+	// 			if (cRow == 0 && cCol == this.cols - 1){
+
+	// 				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow+1][cCol]);
+	// 				}
+
+	// 				if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow][cCol-1]);
+	// 				}
+	// 			}
+
+	// 			// Bottom left corner
+	// 			if (cRow == this.rows - 1 && cCol == 0){
+
+	// 				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow-1][cCol]);
+	// 				}
+
+	// 				if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow][cCol+1]);
+	// 				}
+	// 			}
+
+	// 			// Bottom right corner
+	// 			if (cRow == this.rows - 1 && cCol == this.cols - 1){
+
+	// 				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow-1][cCol]);
+	// 				}
+
+	// 				if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow][cCol-1]);
+	// 				}
+	// 			}
+	// 		}
+
+	// 		// If cell is not a corner cell
+	// 		else{
+
+	// 			// If cell is in top row
+	// 			if (cRow == 0){
+
+	// 				if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow][cCol+1]);
+	// 				}
+
+	// 				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow+1][cCol]);
+	// 				}
+
+	// 				if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow][cCol-1]);
+	// 				}
+	// 			}
+
+	// 			// If cell is in bottom row
+	// 			else{
+
+	// 				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow-1][cCol]);
+	// 				}
+
+	// 				if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow][cCol+1]);
+	// 				}
+
+	// 				if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
+
+	// 					neighbors.add(this.landscape[cRow][cCol-1]);
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+
+	// 	// If cell is on column perimeter
+	// 	else{
+
+	// 		// If cell is on right perimeter
+	// 		if (cCol == 0){
+	// 			if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
+
+	// 				neighbors.add(this.landscape[cRow-1][cCol]);
+	// 			}
+
+	// 			if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
+
+	// 				neighbors.add(this.landscape[cRow][cCol+1]);
+	// 			}
+
+	// 			if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
+
+	// 				neighbors.add(this.landscape[cRow+1][cCol]);
+	// 			}
+	// 		}
+
+	// 		// If cell is on left perimeter
+	// 		else{
+
+	// 			if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE){
+
+	// 				neighbors.add(this.landscape[cRow-1][cCol]);
+	// 			}
+
+	// 			if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE){
+
+	// 				neighbors.add(this.landscape[cRow][cCol-1]);
+	// 			}
+
+	// 			if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE){
+
+	// 				neighbors.add(this.landscape[cRow+1][cCol]);
+	// 			}
+	// 		}
+	// 	}
+
+	// 	return neighbors;
+	// }
+
+
 	public ArrayList<Cell> getNeighbors(Cell c){
 
-		neighbors = new ArrayList<Cell>();
-		int cRow = c.getRow();
-		int cCol = c.getCol();
+		ArrayList<Cell> neighbors = new ArrayList<Cell>();
 
-		// Arraylist adds in order of up, right, down, left
+		for (int i = c.getRow()-1; i < c.getRow() + 2; i++){
 
-		// Check if cell c not a perimeter or corner cell
-		if (cRow != 0 && cRow != this.rows - 1){
+			for(int j = c.getCol()-1; j < c.getCol() +2; j++){
 
-			if (cCol != 0 && cCol != this.cols - 1){
+				if(i >= 0 && i < this.rows && j >= 0 && j < this.cols){ 
+					if (i != c.getRow() || j != c.getCol()){
 
-				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
+						if ((i == c.getRow() || j == c.getCol()) && this.landscape[i][j].getType() != Cell.Type.OBSTACLE){
 
-					neighbors.add(this.landscape[cRow-1][cCol]);
-				}
-
-				if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
-
-					neighbors.add(this.landscape[cRow][cCol+1]);
-				}
-
-				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
-
-					neighbors.add(this.landscape[cRow+1][cCol]);
-				}
-
-				if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
-
-					neighbors.add(this.landscape[cRow][cCol-1]);
-				}
-			}
-		}
-
-		// Check if cell c is a perimeter or corner cell
-		if (cRow == 0 || cRow == this.rows - 1){
-
-			// If cell is a corner cell
-			if (cCol == 0 || cCol == this.cols - 1){
-
-				// Top left corner
-				if (cRow == 0 && cCol == 0){
-
-					if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow][cCol+1]);
-					}
-
-					if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow+1][cCol]);
-					}
-				}
-
-				// Top right corner
-				if (cRow == 0 && cCol == this.cols - 1){
-
-					if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow+1][cCol]);
-					}
-
-					if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow][cCol-1]);
-					}
-				}
-
-				// Bottom left corner
-				if (cRow == this.rows - 1 && cCol == 0){
-
-					if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow-1][cCol]);
-					}
-
-					if (this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow][cCol+1]);
-					}
-				}
-
-				// Bottom right corner
-				if (cRow == this.rows - 1 && cCol == this.cols - 1){
-
-					if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow-1][cCol]);
-					}
-
-					if (this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow][cCol-1]);
+							neighbors.add(this.landscape[i][j]);
+						}
 					}
 				}
 			}
-
-			// If cell is not a corner cell
-			else{
-
-				// If cell is in top row
-				if (cRow == 0){
-
-					if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow][cCol+1]);
-					}
-
-					if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow+1][cCol]);
-					}
-
-					if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow][cCol-1]);
-					}
-				}
-
-				// If cell is in bottom row
-				else{
-
-					if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow-1][cCol]);
-					}
-
-					if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow][cCol+1]);
-					}
-
-					if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol-1].getType() == Cell.Type.TARGET){
-
-						neighbors.add(this.landscape[cRow][cCol-1]);
-					}
-				}
-			}
-		}
-
-		// If cell is on column perimeter
-		else{
-
-			// If cell is on right perimeter
-			if (cCol == 0){
-				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow-1][cCol].getType() == Cell.Type.TARGET){
-
-					neighbors.add(this.landscape[cRow-1][cCol]);
-				}
-
-				if(this.landscape[cRow][cCol+1].getType() == Cell.Type.FREE || this.landscape[cRow][cCol+1].getType() == Cell.Type.TARGET){
-
-					neighbors.add(this.landscape[cRow][cCol+1]);
-				}
-
-				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE || this.landscape[cRow+1][cCol].getType() == Cell.Type.TARGET){
-
-					neighbors.add(this.landscape[cRow+1][cCol]);
-				}
-			}
-
-			// If cell is on left perimeter
-			else{
-
-				if (this.landscape[cRow-1][cCol].getType() == Cell.Type.FREE){
-
-					neighbors.add(this.landscape[cRow-1][cCol]);
-				}
-
-				if(this.landscape[cRow][cCol-1].getType() == Cell.Type.FREE){
-
-					neighbors.add(this.landscape[cRow][cCol-1]);
-				}
-
-				if (this.landscape[cRow+1][cCol].getType() == Cell.Type.FREE){
-
-					neighbors.add(this.landscape[cRow+1][cCol]);
-				}
-			}
-		}
-
-		return neighbors;
+		}	return neighbors;
 	}
 
 	public String toString(){
