@@ -2,19 +2,19 @@
 *File: CellQueue.java
 *Derek Hessinger
 *CS231
-*10/18/22
+*10/26/22
 */
 
 public class CellQueue<T>{
 
 	private class Node{
 
-		//Fields
+		// Fields for Node
 		Node next;
 		Cell cell;
 		Node prev;
 
-
+		//Node constructor
 		public Node(Cell cell){
 
 			this.cell = cell;
@@ -22,6 +22,7 @@ public class CellQueue<T>{
 			this.prev = null;
 		}
 
+		// Node constructor
 		public Node(Cell cell, Node next, Node prev){
 
 			this.cell = cell;
@@ -29,26 +30,31 @@ public class CellQueue<T>{
 			this.prev = prev;
 		}
 
+		// Returns the cell
 		public Cell getCell(){
 
 			return this.cell;
 		}
 
+		// Returns the next node
 		public Node getNext(){
 
 			return this.next;
 		}
 
+		// Sets the next node
 		public void setNext(Node next){
 
 			this.next = next;
 		}
 
+		// Gets the previous node
 		public Node getPrev(){
 
 			return this.prev;
 		}
 
+		// Sets the previous node
 		public void setPrev(Node prev){
 
 			this.prev = prev;
@@ -60,6 +66,7 @@ public class CellQueue<T>{
 	Node tail;
 	int size;
 
+	// Constructor for Cell Queue
 	public CellQueue(){
 
 		this.head = null;
@@ -67,55 +74,51 @@ public class CellQueue<T>{
 		this.size = 0;
 	}
 
+	// To string method
 	public String getType(){
 
 		return "CellQueue";
 	}
 
-	//Adds cell at the end of the queue
+	// Adds cell at the end of the queue
 	public void offer(Cell c){
 
-		//Make new node
+		// Make new node
 		Node newNode = new Node(c);
 
-		//If size is 0, set head to newNode
+		// If size is 0, set head to newNode
 		if (size == 0){
 
 			this.head = newNode;
 			this.tail = newNode;
 		}
 
-		// tail.setNext = newNode
-		// newNode.prev = tail;
-		// tail = newNode;
-		// size++;
-
-		//Set prev to null
+		// Set prev to null
 		newNode.setPrev(tail);
 
-		//Set old tail prev cell to new tail
+		// Set old tail prev cell to new tail
 		this.tail.setPrev(newNode);
 
-		//Set next to tail
+		// Set next to tail
 		newNode.setNext(this.tail);
 
-		//Set tail to newNode
+		// Set tail to newNode
 		this.tail = newNode;
 
-		//Increase size by 1
+		// Increase size by 1
 		size++;
 	}
 
-	//Returns cell at front of queue
+	// Returns cell at front of queue
 	public Cell peek(){
 
 		return this.head.cell;
 	}
 
-	//Returns and removes cell at front of queue
+	// Returns and removes cell at front of queue
 	public Cell poll(){
 
-		//Create deleted node at head
+		// Create deleted node at head
 		Node deleted = this.head;
 
 		if (size == 1){
@@ -126,13 +129,13 @@ public class CellQueue<T>{
 			return deleted.cell;
 		}
 
-		//Set head to the previous node
+		// Set head to the previous node
 		this.head = head.getPrev();
 
-		//Set the next node of head to be null
+		// Set the next node of head to be null
 		this.head.setNext(null);
 
-		//Set previous of deleted to null so it no longer has any references
+		// Set previous of deleted to null so it no longer has any references
 		deleted.setPrev(null);
 
 		size--;
@@ -140,12 +143,13 @@ public class CellQueue<T>{
 		return deleted.cell;
 	}
 
-	//Returns size of queue
+	// Returns size of queue
 	public int size(){
 
 		return this.size;
 	}
 
+	// To string method
 	public String toString(){
 
 		return "" + size;
@@ -153,10 +157,12 @@ public class CellQueue<T>{
 
 	public static void main(String[] args){
 
-		CellQueue<Cell> cq = new CellQueue<Cell>();
-		Cell c1 = new Cell(0, 0, Cell.Type.FREE);
-		cq.offer(c1);
-		System.out.println(cq.size());
-		System.out.print(cq.poll());
+		// Tests for cell queue
+
+		// CellQueue<Cell> cq = new CellQueue<Cell>();
+		// Cell c1 = new Cell(0, 0, Cell.Type.FREE);
+		// cq.offer(c1);
+		// System.out.println(cq.size());
+		// System.out.print(cq.poll());
 	}
 }

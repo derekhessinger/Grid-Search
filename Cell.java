@@ -2,7 +2,7 @@
 *File: Cell.java
 *Derek Hessinger
 *CS231
-*10/18/22
+*10/26/22
 */
 
 import java.awt.Graphics;
@@ -10,8 +10,7 @@ import java.awt.Color;
 
 public class Cell{
 
-	//TODO: create better toString()
-
+	// Cell types
 	public enum Type{
 
 		FREE, OBSTACLE, START, TARGET
@@ -31,6 +30,7 @@ public class Cell{
 		this.type = type;
 	}
 
+	// Returns object type
 	public String getObjType(){
 
 		return "Cell";
@@ -48,18 +48,19 @@ public class Cell{
 		return this.col;
 	}
 
-	//Returns type of cell
+	// Returns type of cell
 	public Type getType(){
 
 		return this.type;
 	}
 
+	// Sets the type of the cell
 	public void setType(Type type){
 
 		this.type = type; 
 	}
 
-	//Return if cell has been visited
+	// Return if cell has been visited
 	public boolean visited(){
 
 		return this.visited;
@@ -70,20 +71,20 @@ public class Cell{
 		this.visited = visit;
 	}
 
-	//Returns previous cell
+	// Returns previous cell
 	public Cell getPrev(){
 
 		return this.prev;
 	}
 
-	//Sets visited to true and prev to c
+	// Sets visited to true and prev to c
 	public void visitFrom(Cell c){
 
 		this.visited = true;
 		this.prev = c;
 	}
 
-	//Sets visited to false and prev to null
+	// Sets visited to false and prev to null
 	public void reset(){
 
 		this.visited = false;
@@ -134,12 +135,14 @@ public class Cell{
 
 	public static void main(String[] args){
 
-		Cell cell = new Cell(0, 0, Cell.Type.FREE);
+		// Tests for cell
 
-		System.out.println(cell.visited());
+		// Cell cell = new Cell(0, 0, Cell.Type.FREE);
 
-		cell.setVisited(true);
+		// System.out.println(cell.visited());
 
-		System.out.println(cell.visited());
+		// cell.setVisited(true);
+
+		// System.out.println(cell.visited());
 	}
 }

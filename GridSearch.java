@@ -1,8 +1,8 @@
 /*
-*File: LandscapeTests.java
+*File: GridSearch.java
 *Derek Hessinger
 *CS231
-*10/21/22
+*10/26/22
 */
 
 import java.util.ArrayList;
@@ -16,12 +16,18 @@ public class GridSearch{
 	LandscapeDisplay display;
 
 	// Constructs GridSearch
-	public GridSearch(){
+	public GridSearch(double chance){
 
-		this.scape = new Landscape(10, 10, 0.2);
+		this.scape = new Landscape(10, 10, chance);
 		this.display = new LandscapeDisplay(this.scape, 20);
 	}
 	
+	// Returns object type
+	public String getObjType(){
+
+		return "GridSearch";
+	}
+	// Executes depth first search
 	public boolean depthFirstSearch(int delay) throws InterruptedException{
 
 		// Create an empty Stack of Cells
@@ -34,6 +40,7 @@ public class GridSearch{
 		// Push the start onto the stack
 		cs.push(start);
 
+		// Updates the display
 		while (cs.size() != 0){
 
 			if (delay > 0){
@@ -42,46 +49,39 @@ public class GridSearch{
 				display.repaint();
 			}
 
+			// Pops off a cell
 			Cell cur = cs.pop();
 
+			// Creates an array list of neighbors of popped cell cur
 			ArrayList<Cell> curNeighbors = this.scape.getNeighbors(cur);
 
-			System.out.println(curNeighbors);
-
-			// for(Cell n: curNeighbors){
-
-			// 	if (n.getType() != Cell.Type.OBSTACLE && n.visited() == false){
-
-			// 		n.visitFrom(cur);
-
-			// 		if (n.getType() == Cell.Type.TARGET){
-
-			// 			return true;
-			// 		}
-			// 		cs.push(n);
-			// 	}
-			// }
-
+			// For each neighbor in curNeighbors
 			for (int i = 0; i < curNeighbors.size(); i++){
 
+				// Create a cell to check the neighbor
 				Cell curCell = curNeighbors.get(i);
 
+				// If the neighboring cell is not an obstacle and has not been visited
 				if (curCell.getType() != Cell.Type.OBSTACLE && curCell.visited() == false){
 
+					// Set the cell to visited from cur
 					curCell.visitFrom(cur);
 
+					// If the cell is the target return true
 					if (curCell.getType() == Cell.Type.TARGET){
 
 						return true;
 					}
+					// Push the cell to the stack
 					cs.push(curCell);
 				}
 			}
 		}
+		// Returns false if there is no viable path to the target
 		return false;
 	}
 
-	
+	// Executes breadth first search
 	public boolean breadthFirstSearch(int delay) throws InterruptedException{
 
 		// Create an empty Queue of Cells
@@ -91,8 +91,10 @@ public class GridSearch{
 		Cell start = this.scape.getStart();
 		start.setVisited(true);
 
+		// Offer the start to the queue
 		cq.offer(start);
 
+		// Updates the display
 		while(cq.size() != 0){
 
 			if (delay > 0){
@@ -101,31 +103,42 @@ public class GridSearch{
 				display.repaint();
 			}
 
+			// Poll the first cell from the queue
 			Cell cur = cq.poll();
+
+			// Create an array list to hold the neighbors of cur
 			ArrayList<Cell> curNeighbors = this.scape.getNeighbors(cur);
 
+			// For each cell n in curNeighbors
 			for (Cell n: curNeighbors){
 
+				// If the cell is not an obstacle and has not been visited
 				if (n.getType() != Cell.Type.OBSTACLE && n.visited() == false){
 
+					// Set the neighboring cell to visited from cur
 					n.visitFrom(cur);
 
+					// If the cell is the target return true
 					if (n.getType() == Cell.Type.TARGET){
 
 						return true;
 					}
 
+					// Offer the cell to the queue
 					cq.offer(n);
 				}
 			}
 		}
+		// Returns false if there is no viable path to the target
 		return false;
 	}
 
 	public static void main(String[] args) throws InterruptedException{
 
-		GridSearch gs = new GridSearch();
-		gs.depthFirstSearch(0);
+		// Tests for GridSearch
+
+		// GridSearch gs = new GridSearch();
+		// gs.depthFirstSearch(0);
 
 		// gs.reset();
 

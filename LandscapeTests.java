@@ -2,8 +2,9 @@
 *File: LandscapeTests.java
 *Derek Hessinger
 *CS231
-*10/20/22
+*10/26/22
 */
+import java.util.ArrayList;
 
 public class LandscapeTests{
 
@@ -118,6 +119,33 @@ public class LandscapeTests{
 			System.out.println("");
 		}
 
-		//TODO: write test for getNeighbors()
+		// case 7: testing getNeighbors()
+		{
+			System.out.println("TESTING: getNeighbors()");
+
+			// setup
+			Landscape ld1 = new Landscape(10, 10, 0);
+			Landscape ld2 = new Landscape(10, 10, 1);
+
+			Cell c1 = ld1.getCell(0,0);
+			Cell c2 = ld2.getCell(0,0);
+
+			ArrayList<Cell> a1 = ld1.getNeighbors(c1);
+			ArrayList<Cell> a2 = ld2.getNeighbors(c2);
+
+			// verify
+			System.out.println(a1.size() + " == 2");
+			System.out.println(a2.size() + " == 0");
+
+			// test
+			assert a1.size() == 2 : "Error in Landscape::getNeighbors()";
+			assert a2.size() == 0 : "Error in Landscape::getNeighbors()";
+
+
+			System.out.println("Testing complete!");
+			System.out.println("");
+		}
+
+		System.out.println("***TESTING FINISHED***");
 	}
 }
