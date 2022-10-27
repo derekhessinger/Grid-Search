@@ -137,8 +137,8 @@ public class GridSearch{
 
 		// Tests for GridSearch
 
-		// GridSearch gs = new GridSearch();
-		// gs.depthFirstSearch(0);
+		GridSearch gs = new GridSearch(0.2);
+		gs.depthFirstSearch(0);
 
 		// gs.reset();
 
